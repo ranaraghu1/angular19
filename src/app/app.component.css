@@ -1,3 +1,9 @@
 h1{
     background-color: orange;
 }
+
+.taskList{
+    display: flex ; 
+    justify-content: space-between;
+    list-style-type: none;
+}

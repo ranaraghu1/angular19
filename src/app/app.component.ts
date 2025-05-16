@@ -1,10 +1,11 @@
 import { Component, computed, effect, Signal, signal, WritableSignal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, LoginComponent],
+  imports: [RouterOutlet, LoginComponent,FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -100,8 +101,26 @@ constructor() {
 
   }
 
+ employees = [];
 
+  name="rana";
 
-  
+//  To do list
+  task = "";
+  taskList: { id: number, task: string }[] = [];
+
+  addTask() {
+    this.taskList.push({ id: this.taskList.length + 1, task: this.task });
+    this.task = "";
+  }
+
+  deleteTask(id: number) {
+    this.taskList = this.taskList.filter((item) => item.id != id);
+  }
+
+  bgColor="red"
+  //fontSize="50px"
+  fontSize="50"
+ 
 
 }

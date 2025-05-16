@@ -45,14 +45,45 @@ let l=$last;
 let i=$index
 
 ){
-    
-   
-    @if(f || l){
-      <h3 style="background-color: aqua;">{{$index+1}} {{user}}</h3>
-    }@else{
-          <h3>{{i+1}} {{user}}</h3> 
-    }
+
+@if(f || l){
+<h3 style="background-color: aqua;">{{$index+1}} {{user}}</h3>
+}@else{
+<h3>{{i+1}} {{user}}</h3>
 
 }
+<!-- <h3>{{$count}}</h3> -->
+}
+
+@for(employee of employees;track employee)
+{
+
+<h3>{{employee}}</h3>
+
+}
+@empty(){
+    <h3>No records found</h3>
+}
+
+<h1>Two way binding</h1>
+<input type="text" [(ngModel)]="name" placeholder="Enter name"><br><br>
+<h3>{{name}}</h3>
+
+<h1>To do list</h1>
+<input type="text" [(ngModel)]="task" placeholder="Enter new task"><br><br>
+<button (click)="addTask()">Add Task</button><br><br>
+@for(task of taskList;track task.id)
+{
+<ul class="taskList">
+    <li>{{task.id}}</li>
+    <li>{{task.task}}</li>
+    <li><button (click)="deleteTask(task.id)">Delete Task</button><br><br></li>
+</ul>
+
+}
+
+<h3 [style.backgroundColor]="bgColor"
+[style.fontSize.px]="fontSize"
+>Dynamic style</h3>
 
 

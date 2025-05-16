@@ -38,4 +38,21 @@
 }
 <button (click)="showHeading()">show Heading</button>
 
+<h1>For loop-Contextual variable</h1>
+@for(user of users;track user;
+let f=$first;
+let l=$last;
+let i=$index
+
+){
+    
+   
+    @if(f || l){
+      <h3 style="background-color: aqua;">{{$index+1}} {{user}}</h3>
+    }@else{
+          <h3>{{i+1}} {{user}}</h3> 
+    }
+
+}
+
 

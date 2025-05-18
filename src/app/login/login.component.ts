@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProfileComponent } from '../profile/profile.component';
 
 @Component({
   selector: 'login',
@@ -8,4 +10,11 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 login="Login works";
+
+constructor(private router:Router){}
+goToProfile(){
+this.router.navigate(['profile'],{queryParams:{name:'Raghunath Rana'}});
+}
+
+
 }

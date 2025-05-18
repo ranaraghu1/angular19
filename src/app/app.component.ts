@@ -1,11 +1,13 @@
 import { Component, computed, effect, Signal, signal, WritableSignal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
+import { NgFor, NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, LoginComponent,FormsModule],
+  imports: [RouterOutlet, LoginComponent,FormsModule,NgIf,NgFor,NgSwitch,NgSwitchCase,NgSwitchDefault,RouterLink,RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -122,5 +124,13 @@ constructor() {
   //fontSize="50px"
   fontSize="50"
  
+  show=true;
+
+    usersData = [{name:'Raghu',age:'37',email:'rana@gmail'},
+       {name:'Rahul',age:'34',email:'rahul@gmail'},
+        {name:'Rajesh',age:'39',email:'rajesh@gmail'}];
+
+        color="green"
+        login=false;
 
 }

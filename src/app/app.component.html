@@ -86,4 +86,49 @@ let i=$index
 [style.fontSize.px]="fontSize"
 >Dynamic style</h3>
 
+<h1 >Directive</h1>
+<h3 *ngIf="show">Heading Tag</h3>
+
+<ul >
+    <li *ngFor="let x of usersData">{{x.name}}  {{x.age}}  {{x.email}}</li>
+
+</ul>
+
+<h3 >*ngSwitch directive</h3>
+<div [ngSwitch]="color">
+    <h3 *ngSwitchCase="'red'" style="background-color:red">Red color</h3>
+    <h3 *ngSwitchCase="'blue'" style="background-color:blue">Blue color</h3>
+    <h3 *ngSwitchCase="'green'" style="background-color:green">Green color</h3>
+    <h3 *ngSwitchDefault >No color</h3>
+</div>
+
+<h3 >*ngIf directive</h3>
+<div *ngIf="login; else elseBlock">
+    <a herf="">logout</a>
+ </div>
+ <ng-template #elseBlock>
+     <a herf="">logout</a>
+</ng-template>
+
+<h1 > Routing</h1>
+<ul>
+    <li>
+        <a routerLink="/signup">signup</a>
+    </li>
+
+    <li>
+    <a routerLink="/login">login</a>
+    </li>
+
+</ul>
+
+<router-outlet />
+
+
+
+
+
+
+
+
 

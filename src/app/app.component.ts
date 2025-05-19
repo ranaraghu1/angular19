@@ -4,11 +4,12 @@ import { LoginComponent } from './login/login.component';
 import { FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule, NgFor, NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 import { UserComponent } from './user/user.component';
+import { CurrencyConvertorPipe } from './pipes/currency-convertor.pipe';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, LoginComponent,FormsModule,NgIf,NgFor,NgSwitch,NgSwitchCase,NgSwitchDefault,RouterLink,RouterOutlet,UserComponent,ReactiveFormsModule,CommonModule],
+  imports: [RouterOutlet, LoginComponent,FormsModule,NgIf,NgFor,NgSwitch,NgSwitchCase,NgSwitchDefault,RouterLink,RouterOutlet,UserComponent,ReactiveFormsModule,CommonModule,CurrencyConvertorPipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -2,13 +2,13 @@ import { Component, computed, effect, Signal, signal, WritableSignal } from '@an
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
-import { NgFor, NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
+import { CommonModule, NgFor, NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 import { UserComponent } from './user/user.component';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, LoginComponent,FormsModule,NgIf,NgFor,NgSwitch,NgSwitchCase,NgSwitchDefault,RouterLink,RouterOutlet,UserComponent,ReactiveFormsModule],
+  imports: [RouterOutlet, LoginComponent,FormsModule,NgIf,NgFor,NgSwitch,NgSwitchCase,NgSwitchDefault,RouterLink,RouterOutlet,UserComponent,ReactiveFormsModule,CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -107,6 +107,7 @@ constructor() {
  employees = [];
 
   name="rana";
+  nameData="Raghunath";
 
 //  To do list
   task = "";
@@ -172,5 +173,8 @@ addDetails(val:NgForm){
 
 }
 
+ text="angular is a java script framework";
+ date=new Date();
+ amount=10;
 
 }

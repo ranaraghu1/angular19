@@ -66,8 +66,8 @@ let i=$index
 }
 
 <h1>Two way binding</h1>
-<input type="text" [(ngModel)]="name" placeholder="Enter name"><br><br>
-<h3>{{name}}</h3>
+<input type="text" [(ngModel)]="nameData" placeholder="Enter name"><br><br>
+<h3>{{nameData}}</h3>
 
 <h1>To do list</h1>
 <input type="text" [(ngModel)]="task" placeholder="Enter new task"><br><br>
@@ -161,7 +161,8 @@ let i=$index
 <h1 >Template driven form</h1>
 
 <form #userForm="ngForm" (ngSubmit)="addDetails(userForm.value)">
-    <input type="text" placeholder="enter name" name="name" ngModel>
+    <input #name="ngModel"  type="text" required placeholder="enter name" name="name" ngModel>
+     <span  style="color: red;" *ngIf="name.invalid && name.touched">Name is required</span>
     <br><br>
     <input type="text" placeholder="enter password" name="password" ngModel>
     <br><br>
@@ -173,12 +174,23 @@ let i=$index
     <br><br>
     <input type="range" min="0" max="20" name="range" ngModel>
     <br><br>
-    <button>Add User</button>
+    <button [disabled]="userForm.invalid">Add User</button>
 </form>
 
  <h3>{{userDetails?.name}}</h3>
 <h3>{{userDetails?.gender}}</h3>
 <h3>{{userDetails?.range}}</h3>
+
+<h1>pipes in angular</h1>
+<h3>{{text|uppercase}}</h3>
+<h3>{{text|titlecase}}</h3>
+<h3>{{date}}</h3>
+<h3>{{date | date}}</h3>
+<h3>{{date | date:'fullDate'}}</h3>
+<h3>{{date | date:'fullDate'|uppercase}}</h3>
+<h3>{{amount |currency}}</h3>
+<h3>{{amount |currency:'EUR'}}</h3>
+<h3>{{amount |currency:'INR'}}</h3>
 
 
 

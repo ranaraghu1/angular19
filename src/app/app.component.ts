@@ -1,13 +1,14 @@
 import { Component, computed, effect, Signal, signal, WritableSignal } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgFor, NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
+import { UserComponent } from './user/user.component';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, LoginComponent,FormsModule,NgIf,NgFor,NgSwitch,NgSwitchCase,NgSwitchDefault,RouterLink,RouterOutlet],
+  imports: [RouterOutlet, LoginComponent,FormsModule,NgIf,NgFor,NgSwitch,NgSwitchCase,NgSwitchDefault,RouterLink,RouterOutlet,UserComponent,ReactiveFormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -126,11 +127,50 @@ constructor() {
  
   show=true;
 
-    usersData = [{name:'Raghu',age:'37',email:'rana@gmail'},
-       {name:'Rahul',age:'34',email:'rahul@gmail'},
-        {name:'Rajesh',age:'39',email:'rajesh@gmail'}];
+  usersData = [{ name: 'Raghu', age: '37', email: 'rana@gmail' },
+  { name: 'Rahul', age: '34', email: 'rahul@gmail' },
+  { name: 'Rajesh', age: '39', email: 'rajesh@gmail' }];
 
-        color="green"
-        login=false;
+  color = "green"
+  login = false;
+
+
+  usersList = [{ id: "1", name: 'Raghu', age: '37', email: 'rana@gmail' },
+  { id: "2", name: 'Rahul', age: '34', email: 'rahul@gmail' },
+  { id: "3", name: 'Rajesh', age: '39', email: 'rajesh@gmail' }];
+
+
+  userName = new FormControl("User1");
+  password = new FormControl("Welcome123");
+
+  formValue(){
+    console.log(this.userName.value);
+    console.log(this.password.value);
+    
+  }
+
+  profileForm=new FormGroup({
+    loginUser:new FormControl('',[Validators.required,Validators.minLength(5)]),
+    password:new FormControl('',Validators.minLength(8)),
+    email:new FormControl('',Validators.required)
+  })
+
+  onSubmit(){
+    console.log(this.profileForm.value);
+    
+  }
+
+  get loginUser(){
+    return this.profileForm.get('loginUser');
+  }
+//  template driven form
+
+userDetails:any
+addDetails(val:NgForm){
+  console.log(val);
+  this.userDetails=val;
+
+}
+
 
 }
